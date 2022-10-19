@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ES">
+<html>
+<head>
+<!-- ENCABEZADO DE LA PAGINA WEB -->
+<TITLE> Montos de cuenta de constos indirectos</TITLE>
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=ISO-8859-1">
+<META HTTP-EQUIV="Expires" CONTENT="0">
+<META NAME="author" CONTENT="oscar rene vasquez avalos">
+<META NAME="keywords" CONTENT="Sistemas Contables">
+<META NAME="description" CONTENT="CIF">
+    
+    <!-- Estilos -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="tablas.css">
+
+</head>
+<body TEXT="#000000" 	LINK="##000800" 
+VLINK="#ff2a00" ALINK="#33CC00">
+<br><br>
+    <!-- ENCABEZADO DE LA PAGINA WEB -->
+    <header class="header">
+        <div class="container">
+                <div class="col-lg-12">
+                    <div class="text-container text-center">
+                        <h1>Nombre de la Empresa</h1>
+                    </div> 
+                </div>     
+    </header> 
+    <br><br>
+    <div class="container-fluid " >
+        <div class="row justify-content-md-center ">
+        <!--Formulario de catalogo de cuentas-->
+        <div class="col-sm-12 col-md-8">
+        <div class="card outline-black">
+        <div class="card-header bg-info">
+        <h3 class="text-center">CIF</h3>
+        </div>
+        <div class="card-body ">
+            
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6 class="text-center">Cuenta</h6>
+                            </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6 class="text-center">Catalogo de cuentas de costos indirectos</h6>
+                            </div>
+                    </div>
+                </div>
+            
+        <form>
+        <div class="row">
+        <div class="col-md-6">
+        <div class="form-group"><br>
+        <label for="codigo">C&oacute;digo de cuenta: </label>
+        <input type="text" class="form-control" id="codigo" name="codigo">
+        </div>
+        <div class="form-group">
+        <label for="nombre">Nombre de la cuenta: </label>
+        <input class="form-control" id="nombre" rows="5" name="nombre">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Monto:</label>
+            <input class="form-control" id="nombre" rows="5" name="nombre">
+            </div>
+        </div>
+        <div class="col-md-6">
+       <!--INICIO TABLA BOOTSTRAP--> <br><br>
+       <table class="scroll" >
+        <thead>
+            <tr>
+                <th>C&oacute;digo</th>
+                <th >Nombre</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>531</td>
+                <td >Salarios supervisi&oacute;n</td>
+            </tr>
+            <tr>
+                <td>532</td>
+                <td>Salarios oficina</td>
+            </tr>
+            <tr>
+                <td>533</td>
+                <td>Mano de obra indirecta</td>
+            </tr>
+            <tr>
+                <td>534</td>
+                <td>Materiales indirectos</td>
+            </tr>
+            <tr>
+                <td>535</td>
+                <td>Suministros</td>
+            </tr>
+            <tr>
+                <td>536</td>
+                <td>Herramientas</td>
+            </tr>
+            <tr>
+                <td>537</td>
+                <td>Otros materiales</td>
+            </tr>
+            <tr>
+                <td>538</td>
+                <td>Depreciacion</td>
+            </tr>
+            <tr>
+                <td>539</td>
+                <td>Impuestos</td>
+            </tr>
+            <tr>
+                <td>612</td>
+                <td>Servicios publicos</td>
+            </tr>
+            <tr>
+                <td>613</td>
+                <td>Servicios privados</td>
+            </tr>
+            <tr>
+                <td>617</td>
+                <td>Mantenimiento y reparaciones</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <!--FIN TABLA BOOTSTRAP-->
+        </div>
+        </div>
+        <div class="card-footer">      
+            <div class="row">
+                <div class="col-5">
+                    <div class="form-group">
+                        <div class="form-group row">       
+                            <div class="col-sm-7">
+                                <a href="#" type="button" class="btn btn-dark float-right">Agregar</a>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <div class="form-group row">   
+                            <div class="col-sm-6">
+                                <a href="#" type="button" class="btn btn-dark float-right">Limpiar</a>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <div class="form-group row">      
+                            <div class="col-sm-7">
+                                <a href="#" type="button" class="btn btn-dark float-right">Salir</a>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+        
+            </div>
+    </div> 
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <br><br>
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+</body>
+</html>
