@@ -2,6 +2,7 @@ const tablaCuentas = document.getElementById('tablaCuentas')
 const btnAgregarCuenta = document.getElementById('btnAgregarCuenta')
 const inputCodigoCuenta = document.getElementById('inputCodigoCuenta')
 const inputNombreCuenta = document.getElementById('inputNombreCuenta')
+const filasCuentas = document.getElementsByClassName('fila-cuenta')
 
 btnAgregarCuenta.addEventListener('click', agregarCuenta)
 
@@ -100,7 +101,7 @@ function cargarCuentas(){
     })
     cuentas.forEach((cuenta, index) => {
         cuentasHTML = `
-        <tr id="filaCuenta${cuenta.codigo}">
+        <tr class="fila-cuenta" id="filaCuenta${cuenta.codigo}">
             <td>${cuenta.codigo}</td>
             <td>${cuenta.nombre}</td>
         </tr>
@@ -132,6 +133,10 @@ function agregarCuenta() {
     else {
         alert("El numero no es valido❗")
     }
+}
+
+function seleccionarCuenta() {
+    console("Se selecciono")
 }
 
 window.addEventListener('load', iniciarSistema)

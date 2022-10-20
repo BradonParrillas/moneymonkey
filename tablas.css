@@ -1,7 +1,7 @@
 table.scroll {
-    width: 400px; /* 140px * 5 column + 16px scrollbar width */
+    width: 100%;
     border-spacing: 0;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 table.scroll tbody,
@@ -13,18 +13,17 @@ table.scroll tbody {
     overflow-x: hidden;
 }
 
-table.scroll tbody td,
 table.scroll thead th {
     width: 140px;
-    border-right:  black;
+    /* border-right:  black; */
 }
 
 table.scroll thead th:last-child {
-    width: 156px; /* 140px + 16px scrollbar width */
+    width: 100%; /* 140px + 16px scrollbar width */
 }
 
 tr:hover {
-    background-color: rgb(201, 232, 248);
+    /* background-color: rgb(201, 232, 248); */
     cursor: pointer;
 }
 
@@ -34,9 +33,9 @@ thead tr th {
     /*text-align: left;*/
 }
 
-tbody { border-top: 2px solid black; }
+/* tbody { border-top: 2px solid black; } */
 
 tbody td:last-child, thead th:last-child {
     border-right: none !important;
 }
-.outline-black { outline: 1px solid black; }
+/* .outline-black { outline: 1px solid black; } */
