@@ -88,9 +88,19 @@ function iniciarSistema() {
 }
 
 function cargarCuentas(){
+    tablaCuentas.innerHTML = ""
+    cuentas.sort(function (a, b){
+        if(a.codigo > b.codigo) {
+            return 1;
+        }
+        if(a.codigo < b.codigo) {
+            return -1;
+        }
+        return 0;
+    })
     cuentas.forEach((cuenta, index) => {
         cuentasHTML = `
-        <tr>
+        <tr id="filaCuenta${cuenta.codigo}">
             <td>${cuenta.codigo}</td>
             <td>${cuenta.nombre}</td>
         </tr>
@@ -101,10 +111,27 @@ function cargarCuentas(){
 }
 
 function agregarCuenta() {
-    codigoCuenta = inputCodigoCuenta.value
-    nombreCuenta = inputNombreCuenta.value
-    if(codigoCuenta)
-        cuentas.push(new Cuenta(codigoCuenta, nombreCuenta))
+    let codigoCuenta = parseInt(inputCodigoCuenta.value)
+    let nombreCuenta = inputNombreCuenta.value
+    let estaEnCuentas
+
+    cuentas.forEach(cuenta => {
+        if(cuenta.codigo == codigoCuenta || (codigoCuenta % 10) == 0)
+            estaEnCuentas = true
+    })
+
+    if(codigoCuenta > 0 && codigoCuenta < 1000 && !(estaEnCuentas)) {
+        if (nombreCuenta != "") {
+            cuentas.push(new Cuenta(String(codigoCuenta), nombreCuenta))
+            console.log(codigoCuenta)
+            cargarCuentas()
+        } else {
+            alert("Ingrese un nombre a la cuenta")
+        }
+    }
+    else {
+        alert("El numero no es valido❗")
+    }
 }
 
 window.addEventListener('load', iniciarSistema)

@@ -23,6 +23,11 @@ table.scroll thead th:last-child {
     width: 156px; /* 140px + 16px scrollbar width */
 }
 
+tr:hover {
+    background-color: rgb(201, 232, 248);
+    cursor: pointer;
+}
+
 thead tr th { 
     height: 25px;
     line-height: 10px;
