@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ES">
+<html>
+<head>
+<!-- ENCABEZADO DE LA PAGINA WEB -->
+<TITLE> Catalogo de cuentas </TITLE>
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=ISO-8859-1">
+<META HTTP-EQUIV="Expires" CONTENT="0">
+<META NAME="author" CONTENT="oscar rene vasquez avalos">
+<META NAME="keywords" CONTENT="Sistemas Contables">
+<META NAME="description" CONTENT="Catalogo de cuentas">
+    
+    <!-- Estilos -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="tablas.css">
+
+</head>
+<body TEXT="#000000" 	LINK="##000800" 
+VLINK="#ff2a00" ALINK="#33CC00">
+<br><br>
+    <!-- ENCABEZADO DE LA PAGINA WEB -->
+    <header class="header">
+        <div class="container">
+                <div class="col-lg-12">
+                    <div class="text-container text-center">
+                        <h1>Nombre de la Empresa</h1>
+                    </div> 
+                </div>     
+    </header> 
+    <br><br>
+    <div class="container-fluid " >
+        <div class="row justify-content-md-center ">
+        <!--Formulario de catalogo de cuentas-->
+        <div class="col-sm-12 col-md-8">
+        <div class="card outline-black">
+        <div class="card-header bg-info">
+        <h3 class="text-center">Catalogo de cuentas</h3>
+        </div>
+        <div class="card-body ">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <h6 class="text-center">Cuenta</h6>
+                        </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <h6 class="text-center">Catalogo de cuentas</h6>
+                        </div>
+                </div>
+            </div>
+        <form>
+            <div class="row">
+            <div class="col-md-6">
+                <div class="form-group"><br>
+                    <label for="codigo">C&oacute;digo: </label>
+                    <input type="number" class="form-control" id="inputCodigoCuenta" name="codigo" min="1" max="999">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre: </label>
+                    <input class="form-control" id="inputNombreCuenta" rows="5" name="nombre">
+                </div>
+            </div>
+            <div class="col-md-6">
+            <!--INICIO TABLA BOOTSTRAP-->
+            <table class="scroll">
+                <thead>
+                    <tr>
+                        <th>C&oacute;digo</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCuentas">
+                </tbody>
+            </table>
+            <br>
+            <!--FIN TABLA BOOTSTRAP-->
+            </div>
+            </div>
+            <div class="card-footer ">
+            <input type="submit" class="btn btn-dark float-left" value="Agregar" id="btnAgregarCuenta" onclick="return false">
+            <a type="button" class="btn btn-lg float-left disabled" aria-disabled="true"></a>
+            <a href="#" type="button" class="btn btn-dark float-left">Eliminar</a>
+            </div>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    <!-- Scripts -->
+
+    <script src="./js/index.js"></script>
+</body>
+</html>
