@@ -170,7 +170,7 @@ function cargarMovimientos() {
     movimientos.forEach((movimiento, index) => {
         if(
             (movimiento.tipo == "Abonar" && cuentas[movimiento.cuenta].codigo[0] == 1) ||
-            (movimiento.tipo == "Cargar" && cuentas[movimiento.cuenta] != 1)
+            (movimiento.tipo == "Cargar" && cuentas[movimiento.cuenta].codigo[0] != 1)
         ) {
             tablaMovimientos.innerHTML +=`
             <tr class="fila-movimiento" id="filaMovimiento${index}">
@@ -264,7 +264,12 @@ function registrarMovimiento() {
 
 function realizarBalanceDeComprobacion() {
     movimientos.forEach((movimiento) => {
-        
+        if(
+            (movimiento.tipo == "Abonar" && cuentas[movimiento.cuenta].codigo[0] == 1) ||
+            (movimiento.tipo == "Cargar" && cuentas[movimiento.cuenta] != 1)
+        ) {
+
+        }
     })
 }
 
