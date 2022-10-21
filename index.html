@@ -3,7 +3,7 @@
 
 <head>
     <!-- ENCABEZADO DE LA PAGINA WEB -->
-    <TITLE> Catalogo de cuentas </TITLE>
+    <TITLE> Contabilidad🧮 </TITLE>
     <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=ISO-8859-1">
     <META HTTP-EQUIV="Expires" CONTENT="0">
     <META NAME="author" CONTENT="oscar rene vasquez avalos">
@@ -18,10 +18,9 @@
 
 </head>
 
-<body TEXT="#000000" LINK="##000800" VLINK="#ff2a00" ALINK="#33CC00" style="background-color:#343a40">
-    <br><br>
+<body TEXT="#000000" LINK="##000800" VLINK="#ff2a00" ALINK="#33CC00" style="background-color:#343a40;">
     <!-- todo: ENCABEZADO DE LA PAGINA WEB -->
-    <header class="header">
+    <header class="header" style="margin: 2rem 0 2rem 0;">
         <div class="container">
             <div class="col-lg-12">
                 <div class="text-container text-center">
@@ -29,7 +28,7 @@
                 </div>
             </div>
     </header>
-    <br><br>
+
     <!-- todo: Catalogo de cuentas -->
     <div class="container-fluid" style="display: none;">
         <div class="row justify-content-md-center ">
@@ -94,10 +93,10 @@
             </div>
         </div>
     </div>
-    <br>
+    <!-- FIN Catalogo de cuentas -->
 
     <!-- todo: Libro Diario -->
-    <div class="container-fluid " style="display: block;">
+    <div class="container-fluid " style="display: none;">
         <div class="row justify-content-md-center ">
             <!--Formulario de catalogo de cuentas-->
             <div class="col-sm-12 col-md-10">
@@ -224,18 +223,53 @@
                                 </div>
                             </div>
                             <!--FIN TABLA BOOTSTRAP-->
-                            <br>
-                            <div class="card-footer ">
-                                <a href="#" type="button" class="btn btn-dark float-left">Limpiar Todo</a>
-                                <a type="button" class="btn btn-lg float-left disabled" aria-disabled="true"></a>
-                                <a href="#" type="button" class="btn btn-dark float-right">Agregar Libro Diario</a>
-                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- FIN Libro Diario -->
+
+    <!-- todo: Balance de comprobacion -->
+    <div class="container-fluid " style="display: block;">
+        <div class="row justify-content-md-center ">
+            <!--Formulario de catalogo de cuentas-->
+            <div class="col-sm-12 col-md-10">
+                <div class="card outline-black">
+                    <div class="card-header">
+                        <h3 class="text-center" style="color: gray;">Balance de Comprobacion</h3>
+                    </div>
+                    <div class="card-body ">
+                        <form>
+                            <!--INICIO TABLA BOOTSTRAP-->
+                            <div class="col-sm-12 col-md-15 ">
+                                <br />
+                                <div class="card ">
+                                    <div class="card-body-outline-dark">
+                                        <table class="table ">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">Nombre de cuenta</th>
+                                                    <th scope="col">Debe</th>
+                                                    <th scope="col">Haber</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="balanceDeComprobacion">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--FIN TABLA BOOTSTRAP-->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN Balance de comprobacion -->
+
     <br>
     <!-- Scripts -->
     <script src="./js/index.js"></script>

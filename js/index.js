@@ -14,6 +14,8 @@ const checkAbonar = document.getElementById('checkAbonarMov')
 const checkCargar = document.getElementById('checkCargarMov')
 const inputNumMov = document.getElementById('inputNumMov')
 
+const tableBalance = document.getElementById('balanceDeComprobacion')
+
 btnAgregarCuenta.addEventListener('click', agregarCuenta)
 btnRegistrarMov.addEventListener('click', registrarMovimiento)
 
@@ -22,6 +24,7 @@ class Cuenta {
     constructor(codigo, nombre) {
         this.codigo = codigo
         this.nombre = nombre
+        this.monto = 0
     }
 }
 
@@ -154,6 +157,15 @@ function cargarMovimientos() {
     tablaMovimientos.innerHTML = ""
     totalDebe = 0
     totalHaber = 0
+    movimientos.sort(function (a, b){
+        if(a.numero > b.numero) {
+            return 1;
+        }
+        if(a.numero < b.numero) {
+            return -1;
+        }
+        return 0;
+    })
     movimientos.forEach((movimiento, index) => {
         if(
             (movimiento.tipo == "Abonar" && movimiento.cuenta.codigo[0] == 1) ||
@@ -183,11 +195,12 @@ function cargarMovimientos() {
         }        
     })
     tablaMovimientos.innerHTML +=`
-            <tr class="fila-movimiento" id="filaMovimientoTotal">
+            <tr class="fila-movimiento table-dark" id="filaMovimientoTotal">
                 <td></td>
                 <td><p><strong>Total</strong></p></td>
                 <td><p><strong>${totalDebe}</strong></p></td>
                 <td><p><strong>${totalHaber}</strong></p></td>
+                <td></td>
             </tr>
             `
 }
@@ -246,6 +259,12 @@ function registrarMovimiento() {
         console.log(dateMov, cuenta, monto, concepto, tipo)
         // alert("Ingrese todos los datos")
     }
+
+    realizarBalanceDeComprobacion()
+}
+
+function realizarBalanceDeComprobacion() {
+    cuentas
 }
 
 window.addEventListener('load', iniciarSistema)
