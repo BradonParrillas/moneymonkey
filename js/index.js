@@ -6,8 +6,16 @@ const filasCuentas = document.getElementsByClassName('fila-cuenta')
 
 const tablaMovimientos = document.getElementById('tablaMovimientos')
 const selectCuenta = document.getElementById('selectCuenta')
+const inputMontoMov = document.getElementById('inputMontoMov')
+const inputConceptoMov = document.getElementById('conteptoMovimiento')
+const inputDateMov = document.getElementById('dateMovimiento')
+const btnRegistrarMov = document.getElementById('btnRegistrarMov')
+const checkAbonar = document.getElementById('checkAbonarMov')
+const checkCargar = document.getElementById('checkCargarMov')
 
 btnAgregarCuenta.addEventListener('click', agregarCuenta)
+btnRegistrarMov.addEventListener('click', registrarMovimiento)
+
 
 class Cuenta {
     constructor(codigo, nombre) {
@@ -21,13 +29,14 @@ class Movimiento {
         this.fecha = fecha
         this.cuenta = cuenta
         this.monto = monto
-        this.concepto = concepto
         this.tipo = tipo
     }
 }
 
-cuentas = []
-movimientos = []
+let cuentas = []
+let movimientos = []
+let totalDebe = 0
+let totalHaber = 0
 
 cuentas.push(
     new Cuenta("1","Activo"),
@@ -99,9 +108,9 @@ cuentas.push(
 )
 
 movimientos.push(
-    new Movimiento(new Date("2022-03-25"),cuentas[2], 2000, "abono"),
-    new Movimiento(new Date("2022-03-30"),cuentas[8], 5600, "abono"),
-    new Movimiento(new Date("2022-04-01"),cuentas[18], 520, "abono")
+    new Movimiento(new Date("2022-03-25"),cuentas[2], 2000, "Abonar"),
+    new Movimiento(new Date("2022-03-30"),cuentas[8], 5600, "Abonar"),
+    new Movimiento(new Date("2022-04-01"),cuentas[18], 520, "Abonar")
 )
 
 function iniciarSistema() {
@@ -130,7 +139,7 @@ function cargarCuentas() {
         
         if(cuenta.codigo.length == 3){
             optionCuentaHTML = `
-            <option value="${cuenta.codigo}">${cuenta.codigo} ${cuenta.nombre}</option>
+            <option value="${index}">${cuenta.codigo} ${cuenta.nombre}</option>
             `
             selectCuenta.innerHTML += optionCuentaHTML
         }
@@ -141,17 +150,44 @@ function cargarCuentas() {
 
 function cargarMovimientos() {
     tablaMovimientos.innerHTML = ""
+    totalDebe = 0
+    totalHaber = 0
     movimientos.forEach((movimiento, index) => {
-        tablaMovimientos.innerHTML +=`
-        <tr class="fila-movimiento" id="filaMovimiento${index}">
-            <td>${movimiento.cuenta.codigo}</td>
-            <td>${movimiento.cuenta.nombre}</td>
-            <td>${movimiento.monto}</td>
-            <td>${movimiento.monto}</td>
-            <td>${movimiento.tipo}</td>
-        </tr>
-        `
+        if(
+            (movimiento.tipo == "Abonar" && movimiento.cuenta.codigo[0] == 1) ||
+            (movimiento.tipo == "Cargar" && movimiento.cuenta.codigo[0] != 1)
+        ) {
+            tablaMovimientos.innerHTML +=`
+            <tr class="fila-movimiento" id="filaMovimiento${index}">
+                <td>${movimiento.cuenta.codigo}</td>
+                <td>${movimiento.cuenta.nombre}</td>
+                <td>${movimiento.monto}</td>
+                <td></td>
+                <td>${movimiento.tipo}</td>
+            </tr>
+            `
+            totalDebe += movimiento.monto
+        } else {
+            tablaMovimientos.innerHTML +=`
+            <tr class="fila-movimiento" id="filaMovimiento${index}">
+                <td>${movimiento.cuenta.codigo}</td>
+                <td>${movimiento.cuenta.nombre}</td>
+                <td></td>
+                <td>${movimiento.monto}</td>
+                <td>${movimiento.tipo}</td>
+            </tr>
+            `
+            totalHaber += movimiento.monto
+        }        
     })
+    tablaMovimientos.innerHTML +=`
+            <tr class="fila-movimiento" id="filaMovimientoTotal">
+                <td></td>
+                <td><p><strong>Total</strong></p></td>
+                <td><p><strong>${totalDebe}</strong></p></td>
+                <td><p><strong>${totalHaber}</strong></p></td>
+            </tr>
+            `
 }
 
 function agregarCuenta() {
@@ -180,6 +216,32 @@ function agregarCuenta() {
 
 function seleccionarCuenta() {
     console("Se selecciono")
+}
+
+function registrarMovimiento() {
+    let movimientoValido
+    dateMov = inputDateMov.value
+    cuenta = cuentas[selectCuenta.value]
+    monto = parseInt(inputMontoMov.value)
+    concepto = inputConceptoMov.value
+    tipo = checkAbonar.checked ? "Abonar" : (checkCargar.checked ? "Cargar" : "")
+
+    movimientoValido = dateMov != "" ? true : false
+    movimientoValido = cuenta != "" ? true : false
+    movimientoValido = monto != "" ? (monto > 0 ? true : false) : false
+    movimientoValido = tipo != "" ? true : false
+
+    if(movimientoValido) {
+        console.log("Movimiento valido")
+        console.log(dateMov, cuenta, monto, concepto, tipo)
+        nuevoMovimiento = new Movimiento(dateMov,cuenta,monto,tipo)
+        movimientos.push(nuevoMovimiento)
+        cargarMovimientos()
+    } else {
+        console.log("Movimiento invalido")
+        console.log(dateMov, cuenta, monto, concepto, tipo)
+        // alert("Ingrese todos los datos")
+    }
 }
 
 window.addEventListener('load', iniciarSistema)
