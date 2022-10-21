@@ -12,6 +12,7 @@ const inputDateMov = document.getElementById('dateMovimiento')
 const btnRegistrarMov = document.getElementById('btnRegistrarMov')
 const checkAbonar = document.getElementById('checkAbonarMov')
 const checkCargar = document.getElementById('checkCargarMov')
+const inputNumMov = document.getElementById('inputNumMov')
 
 btnAgregarCuenta.addEventListener('click', agregarCuenta)
 btnRegistrarMov.addEventListener('click', registrarMovimiento)
@@ -25,11 +26,12 @@ class Cuenta {
 }
 
 class Movimiento {
-    constructor(fecha, cuenta, monto, tipo) {
+    constructor(fecha, cuenta, monto, tipo, numero) {
         this.fecha = fecha
         this.cuenta = cuenta
         this.monto = monto
         this.tipo = tipo
+        this.numero = numero
     }
 }
 
@@ -108,9 +110,9 @@ cuentas.push(
 )
 
 movimientos.push(
-    new Movimiento(new Date("2022-03-25"),cuentas[2], 2000, "Abonar"),
-    new Movimiento(new Date("2022-03-30"),cuentas[8], 5600, "Abonar"),
-    new Movimiento(new Date("2022-04-01"),cuentas[18], 520, "Abonar")
+    new Movimiento(new Date("2022-03-25"),cuentas[2], 2000, "Abonar", 1),
+    new Movimiento(new Date("2022-03-30"),cuentas[8], 5600, "Abonar", 2),
+    new Movimiento(new Date("2022-04-01"),cuentas[18], 520, "Abonar", 3)
 )
 
 function iniciarSistema() {
@@ -159,8 +161,8 @@ function cargarMovimientos() {
         ) {
             tablaMovimientos.innerHTML +=`
             <tr class="fila-movimiento" id="filaMovimiento${index}">
-                <td>${movimiento.cuenta.codigo}</td>
-                <td>${movimiento.cuenta.nombre}</td>
+                <td>${movimiento.numero}</td>
+                <td>${movimiento.cuenta.codigo} ${movimiento.cuenta.nombre}</td>
                 <td>${movimiento.monto}</td>
                 <td></td>
                 <td>${movimiento.tipo}</td>
@@ -170,8 +172,8 @@ function cargarMovimientos() {
         } else {
             tablaMovimientos.innerHTML +=`
             <tr class="fila-movimiento" id="filaMovimiento${index}">
-                <td>${movimiento.cuenta.codigo}</td>
-                <td>${movimiento.cuenta.nombre}</td>
+                <td>${movimiento.numero}</td>
+                <td>${movimiento.cuenta.codigo} ${movimiento.cuenta.nombre}</td>
                 <td></td>
                 <td>${movimiento.monto}</td>
                 <td>${movimiento.tipo}</td>
@@ -225,16 +227,18 @@ function registrarMovimiento() {
     monto = parseInt(inputMontoMov.value)
     concepto = inputConceptoMov.value
     tipo = checkAbonar.checked ? "Abonar" : (checkCargar.checked ? "Cargar" : "")
+    numero = parseInt(inputNumMov.value)
 
     movimientoValido = dateMov != "" ? true : false
     movimientoValido = cuenta != "" ? true : false
     movimientoValido = monto != "" ? (monto > 0 ? true : false) : false
+    movimientoValido = numero != "" ? (monto > 0 ? true : false) : false
     movimientoValido = tipo != "" ? true : false
 
     if(movimientoValido) {
         console.log("Movimiento valido")
         console.log(dateMov, cuenta, monto, concepto, tipo)
-        nuevoMovimiento = new Movimiento(dateMov,cuenta,monto,tipo)
+        nuevoMovimiento = new Movimiento(dateMov,cuenta,monto,tipo, numero)
         movimientos.push(nuevoMovimiento)
         cargarMovimientos()
     } else {
