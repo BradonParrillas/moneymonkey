@@ -4,6 +4,9 @@ const inputCodigoCuenta = document.getElementById('inputCodigoCuenta')
 const inputNombreCuenta = document.getElementById('inputNombreCuenta')
 const filasCuentas = document.getElementsByClassName('fila-cuenta')
 
+const tablaMovimientos = document.getElementById('tablaMovimientos')
+const selectCuenta = document.getElementById('selectCuenta')
+
 btnAgregarCuenta.addEventListener('click', agregarCuenta)
 
 class Cuenta {
@@ -13,7 +16,18 @@ class Cuenta {
     }
 }
 
+class Movimiento {
+    constructor(fecha, cuenta, monto, tipo) {
+        this.fecha = fecha
+        this.cuenta = cuenta
+        this.monto = monto
+        this.concepto = concepto
+        this.tipo = tipo
+    }
+}
+
 cuentas = []
+movimientos = []
 
 cuentas.push(
     new Cuenta("1","Activo"),
@@ -84,11 +98,18 @@ cuentas.push(
     new Cuenta("617","Mantenimiento y reparaciones")
 )
 
+movimientos.push(
+    new Movimiento(new Date("2022-03-25"),cuentas[2], 2000, "abono"),
+    new Movimiento(new Date("2022-03-30"),cuentas[8], 5600, "abono"),
+    new Movimiento(new Date("2022-04-01"),cuentas[18], 520, "abono")
+)
+
 function iniciarSistema() {
     cargarCuentas()
+    cargarMovimientos()
 }
 
-function cargarCuentas(){
+function cargarCuentas() {
     tablaCuentas.innerHTML = ""
     cuentas.sort(function (a, b){
         if(a.codigo > b.codigo) {
@@ -106,8 +127,30 @@ function cargarCuentas(){
             <td>${cuenta.nombre}</td>
         </tr>
         `
+        
+        if(cuenta.codigo.length == 3){
+            optionCuentaHTML = `
+            <option value="${cuenta.codigo}">${cuenta.codigo} ${cuenta.nombre}</option>
+            `
+            selectCuenta.innerHTML += optionCuentaHTML
+        }
 
         tablaCuentas.innerHTML += cuentasHTML
+    })
+}
+
+function cargarMovimientos() {
+    tablaMovimientos.innerHTML = ""
+    movimientos.forEach((movimiento, index) => {
+        tablaMovimientos.innerHTML +=`
+        <tr class="fila-movimiento" id="filaMovimiento${index}">
+            <td>${movimiento.cuenta.codigo}</td>
+            <td>${movimiento.cuenta.nombre}</td>
+            <td>${movimiento.monto}</td>
+            <td>${movimiento.monto}</td>
+            <td>${movimiento.tipo}</td>
+        </tr>
+        `
     })
 }
 

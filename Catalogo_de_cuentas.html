@@ -1,261 +1,263 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ES">
 <html>
+
 <head>
-<!-- ENCABEZADO DE LA PAGINA WEB -->
-<TITLE> Catalogo de cuentas </TITLE>
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=ISO-8859-1">
-<META HTTP-EQUIV="Expires" CONTENT="0">
-<META NAME="author" CONTENT="oscar rene vasquez avalos">
-<META NAME="keywords" CONTENT="Sistemas Contables">
-<META NAME="description" CONTENT="Catalogo de cuentas">
-    
+    <!-- ENCABEZADO DE LA PAGINA WEB -->
+    <TITLE> Catalogo de cuentas </TITLE>
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=ISO-8859-1">
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <META NAME="author" CONTENT="oscar rene vasquez avalos">
+    <META NAME="keywords" CONTENT="Sistemas Contables">
+    <META NAME="description" CONTENT="Catalogo de cuentas">
+
     <!-- Estilos -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext"
+        rel="stylesheet">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="tablas.css">
 
 </head>
-<body TEXT="#000000" 	LINK="##000800" 
-VLINK="#ff2a00" ALINK="#33CC00" style="background-color:#343a40">
-<br><br>
-    <!-- ENCABEZADO DE LA PAGINA WEB -->
+
+<body TEXT="#000000" LINK="##000800" VLINK="#ff2a00" ALINK="#33CC00" style="background-color:#343a40">
+    <br><br>
+    <!-- todo: ENCABEZADO DE LA PAGINA WEB -->
     <header class="header">
         <div class="container">
-                <div class="col-lg-12">
-                    <div class="text-container text-center">
-                        <h1 style="color: white;">Nombre de la Empresa</h1>
-                    </div>
-                </div>     
-    </header> 
+            <div class="col-lg-12">
+                <div class="text-container text-center">
+                    <h1 style="color: white;">Nombre de la Empresa</h1>
+                </div>
+            </div>
+    </header>
     <br><br>
-    <!-- Catalogo de cuentas -->
-    <div class="container-fluid" style="display: block;">
+    <!-- todo: Catalogo de cuentas -->
+    <div class="container-fluid" style="display: none;">
         <div class="row justify-content-md-center ">
-        <!--Formulario de catalogo de cuentas-->
-        <div class="col-sm-12 col-md-8">
-        <div class="card outline-black">
-        <div class="card-header">
-        <h3 class="text-center" style="color: gray">Catalogo de cuentas</h3>
-        </div>
-        <div class="card-body ">
-            <div class="row">
-                <div class="col-6">
-                    <div class="form-group">
-                        <h6 class="text-center">Cuenta</h6>
+            <!--Formulario de catalogo de cuentas-->
+            <div class="col-sm-12 col-md-8">
+                <div class="card outline-black">
+                    <div class="card-header">
+                        <h3 class="text-center" style="color: gray">Catalogo de cuentas</h3>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <h6 class="text-center">Cuenta</h6>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <h6 class="text-center">Catalogo de cuentas</h6>
+                                </div>
+                            </div>
                         </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><br>
+                                        <label for="codigo">C&oacute;digo: </label>
+                                        <input type="number" class="form-control" id="inputCodigoCuenta" name="codigo"
+                                            min="1" max="999">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nombre">Nombre: </label>
+                                        <input class="form-control" id="inputNombreCuenta" rows="5" name="nombre">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!--INICIO TABLA BOOTSTRAP-->
+                                    <table class="table scroll table-hover" style="">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>C&oacute;digo</th>
+                                                <th>Nombre</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tablaCuentas">
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    <!--FIN TABLA BOOTSTRAP-->
+                                </div>
+                            </div>
+                            <div class="card-footer ">
+                                <input type="submit" class="btn btn-dark float-left" value="Agregar"
+                                    id="btnAgregarCuenta" onclick="return false">
+                                <a type="button" class="btn btn-lg float-left disabled" aria-disabled="true"></a>
+                                <button href="#" type="button" class="btn btn-dark float-left"
+                                    style="display: none;">Eliminar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        <h6 class="text-center">Catalogo de cuentas</h6>
-                        </div>
-                </div>
             </div>
-        <form>
-            <div class="row">
-            <div class="col-md-6">
-                <div class="form-group"><br>
-                    <label for="codigo">C&oacute;digo: </label>
-                    <input type="number" class="form-control" id="inputCodigoCuenta" name="codigo" min="1" max="999">
-                </div>
-                <div class="form-group">
-                    <label for="nombre">Nombre: </label>
-                    <input class="form-control" id="inputNombreCuenta" rows="5" name="nombre">
-                </div>
-            </div>
-            <div class="col-md-6">
-            <!--INICIO TABLA BOOTSTRAP-->
-            <table class="table scroll table-hover" style="">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>C&oacute;digo</th>
-                        <th>Nombre</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaCuentas">
-                </tbody>
-            </table>
-            <br>
-            <!--FIN TABLA BOOTSTRAP-->
-            </div>
-            </div>
-            <div class="card-footer ">
-            <input type="submit" class="btn btn-dark float-left" value="Agregar" id="btnAgregarCuenta" onclick="return false">
-            <a type="button" class="btn btn-lg float-left disabled" aria-disabled="true"></a>
-            <button href="#" type="button" class="btn btn-dark float-left" style="display: none;">Eliminar</button>
-            </div>
-        </form>
-        </div>
-        </div>
-        </div>
         </div>
     </div>
     <br>
-    <!-- Libro Diario -->
-    <div class="container-fluid " style="display: none;" >
+
+    <!-- todo: Libro Diario -->
+    <div class="container-fluid " style="display: block;">
         <div class="row justify-content-md-center ">
-        <!--Formulario de catalogo de cuentas-->
-        <div class="col-sm-12 col-md-10">
-        <div class="card outline-black">
-        <div class="card-header">
-        <h3 class="text-center" style="color: gray;">Libro Diario</h3>
-        </div>
-        
-        <div class="card-body ">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="nombre">Fecha: </label>        
-                        <div class="form-group row">  
-                            <div class="col-sm-10">
-                                <section class="container">
-                                    <form>
-                                        <div class="row form-group">
-                                            <div class="col-sm-12">
-                                                <div class="input-group date" id="datepicker">
-                                                    <input type="date" class="form-control">
-                                                    <span class="input-group-append">
-                                                        <span class="input-group-text bg-white">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </span>
-                                                    </span>
+            <!--Formulario de catalogo de cuentas-->
+            <div class="col-sm-12 col-md-10">
+                <div class="card outline-black">
+                    <div class="card-header">
+                        <h3 class="text-center" style="color: gray;">Libro Diario</h3>
+                    </div>
+
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="nombre">Fecha: </label>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <section class="container">
+                                                <form>
+                                                    <div class="row form-group">
+                                                        <div class="col-sm-12">
+                                                            <div class="input-group date" id="datepicker">
+                                                                <input type="date" class="form-control">
+                                                                <span class="input-group-append">
+                                                                    <span class="input-group-text bg-white">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <h5 class="text-center">Cuenta</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Cuenta:</label>
+                                        <div class="col-sm-8">
+                                            <select type="cod" class="form-control" id="selectCuenta" placeholder="">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Monto:</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control" id="monto" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Concepto:</label>
+                                        <div class="col-sm-8">
+                                            <input type="concepto" class="form-control" id="concepto" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-9"> <label class="col-sm-4 col-form-label"></label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                    id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">Abona</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                    id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">Cargar</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="option1">
+                                                <label class="form-check-label" for="inlineCheckbox1">IVA</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-9"> <label class="col-sm-6 col-form-label"></label>
+                                            <a href="#" type="button" class="btn btn-dark ">Registrar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <br>
+                                    <!--FIN TABLA BOOTSTRAP-->
+                                </div>
+                            </div>
+                            <!--INICIO TABLA BOOTSTRAP-->
+                            <div class="col-sm-12 col-md-15 ">
+                                <br />
+                                <div class="card ">
+                                    <div class="card-body-outline-dark">
+                                        <table class="table ">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">C&oacute;digo</th>
+                                                    <th scope="col">Nombre de cuenta</th>
+                                                    <th scope="col">Debe</th>
+                                                    <th scope="col">Haber</th>
+                                                    <th scope="col">Concepto</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tablaMovimientos">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--FIN TABLA BOOTSTRAP-->
+                            <br>
+                            <div class="card-body ">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Total:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="total" class="form-control" id="total" placeholder="">
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
-                                </section>
-                                <script type="text/javascript">
-                                    $(function() {
-                                        $('#datepicker').datepicker();
-                                    });
-                                </script>
-                            
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Diferencia:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="diferencia" class="form-control" id="diferencia"
+                                                        placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div> 
-                        </div>
+                            <div class="card-footer ">
+                                <a href="#" type="button" class="btn btn-dark float-left">Limpiar Todo</a>
+                                <a type="button" class="btn btn-lg float-left disabled" aria-disabled="true"></a>
+                                <a href="#" type="button" class="btn btn-dark float-right">Agregar Libro Diario</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="form-group">
-                        <h5 class="text-center">Cuenta</h5>
-                        </div>
-                </div>
-            </div>
-        <div class="card-body ">
-        <form>
-        <div class="row">
-            <div class="col">      
-                <div class="form-group row">
-                    <label  class="col-sm-4 col-form-label">Cuenta:</label>
-                    <div class="col-sm-8">
-                      <input type="cod" class="form-control" id="cod" placeholder="">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-4 col-form-label">Monto:</label>
-                    <div class="col-sm-8">
-                      <input type="monto" class="form-control" id="monto" placeholder="">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-4 col-form-label">Concepto:</label>
-                    <div class="col-sm-8">
-                      <input type="concepto" class="form-control" id="concepto" placeholder="">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="col-sm-9">  <label  class="col-sm-4 col-form-label"></label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Abona</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Cargar</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">IVA</label>
-                          </div>
-                    </div>
-                  </div> 
-                  <div class="form-group row">
-                    <div class="col-sm-9">   <label  class="col-sm-6 col-form-label"></label>
-                        <a href="#" type="button" class="btn btn-dark ">Registrar</a>   
-                    </div>
-                  </div> 
-            </div>
-        <div class="col-md-6">
-    <br>
-    <!--FIN TABLA BOOTSTRAP-->
-        </div>
-        </div>
-<!--INICIO TABLA BOOTSTRAP-->
-<div class="col-sm-12 col-md-15 ">
-    <br />
-    <div class="card ">
-    <div class="card-body-outline-dark">
-    <table class="table ">
-        
-    <thead class="thead-dark">
-    <tr>
-    <th scope="col">C&oacute;digo</th>
-    <th scope="col">Nombre de cuenta</th>
-    <th scope="col">Debe</th>
-    <th scope="col">Haber</th>
-    <th scope="col">Concepto</th>
-    </tr>
-    </thead>
-    <tbody >
-        <tr>
-        
-        </tr>
-        </tbody>
-        </table>
-    </div>
-    </div>
-    </div>
-    <!--FIN TABLA BOOTSTRAP-->
-    <br>
-    <div class="card-body ">
-        <div class="row">
-            <div class="col-6">
-                <div class="form-group">
-                    <div class="form-group row">
-                        <label  class="col-sm-4 col-form-label">Total:</label>
-                        <div class="col-sm-8">
-                          <input type="total" class="form-control" id="total" placeholder="">
-                        </div>
-                      </div>
-                    </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <div class="form-group row">
-                        <label  class="col-sm-4 col-form-label">Diferencia:</label>
-                        <div class="col-sm-8">
-                          <input type="diferencia" class="form-control" id="diferencia" placeholder="">
-                        </div>
-                      </div>
-                    </div>
-            </div>
-    
-        </div>
-    </div>
-        <div class="card-footer ">   
-        <a href="#" type="button" class="btn btn-dark float-left">Limpiar Todo</a>        
-        <a type="button" class="btn btn-lg float-left disabled" aria-disabled="true"></a>
-        <a href="#" type="button" class="btn btn-dark float-right">Agregar Libro Diario</a>
-        </div>
-        </form>
-        </div>
-        </div>
-        </div>
         </div>
     </div>
     <br>
     <!-- Scripts -->
     <script src="./js/index.js"></script>
 </body>
+
 </html>
