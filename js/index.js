@@ -113,14 +113,15 @@ cuentas.push(
 )
 
 movimientos.push(
-    new Movimiento(new Date("2022-03-25"),cuentas[2], 2000, "Abonar", 1),
-    new Movimiento(new Date("2022-03-30"),cuentas[8], 5600, "Abonar", 2),
-    new Movimiento(new Date("2022-04-01"),cuentas[18], 520, "Abonar", 3)
+    new Movimiento(new Date("2022-03-25"),2, 2000, "Abonar", 1),
+    new Movimiento(new Date("2022-03-30"),8, 5600, "Abonar", 2),
+    new Movimiento(new Date("2022-04-01"),18, 520, "Abonar", 3)
 )
 
 function iniciarSistema() {
     cargarCuentas()
     cargarMovimientos()
+    realizarBalanceDeComprobacion()
 }
 
 function cargarCuentas() {
@@ -168,13 +169,13 @@ function cargarMovimientos() {
     })
     movimientos.forEach((movimiento, index) => {
         if(
-            (movimiento.tipo == "Abonar" && movimiento.cuenta.codigo[0] == 1) ||
-            (movimiento.tipo == "Cargar" && movimiento.cuenta.codigo[0] != 1)
+            (movimiento.tipo == "Abonar" && cuentas[movimiento.cuenta].codigo[0] == 1) ||
+            (movimiento.tipo == "Cargar" && cuentas[movimiento.cuenta] != 1)
         ) {
             tablaMovimientos.innerHTML +=`
             <tr class="fila-movimiento" id="filaMovimiento${index}">
                 <td>${movimiento.numero}</td>
-                <td>${movimiento.cuenta.codigo} ${movimiento.cuenta.nombre}</td>
+                <td>${cuentas[movimiento.cuenta].codigo} ${cuentas[movimiento.cuenta].nombre}</td>
                 <td>${movimiento.monto}</td>
                 <td></td>
                 <td>${movimiento.tipo}</td>
@@ -185,7 +186,7 @@ function cargarMovimientos() {
             tablaMovimientos.innerHTML +=`
             <tr class="fila-movimiento" id="filaMovimiento${index}">
                 <td>${movimiento.numero}</td>
-                <td>${movimiento.cuenta.codigo} ${movimiento.cuenta.nombre}</td>
+                <td>${cuentas[movimiento.cuenta].codigo} ${cuentas[movimiento.cuenta].nombre}</td>
                 <td></td>
                 <td>${movimiento.monto}</td>
                 <td>${movimiento.tipo}</td>
@@ -236,7 +237,7 @@ function seleccionarCuenta() {
 function registrarMovimiento() {
     let movimientoValido
     dateMov = inputDateMov.value
-    cuenta = cuentas[selectCuenta.value]
+    cuenta = parseInt(selectCuenta.value)
     monto = parseInt(inputMontoMov.value)
     concepto = inputConceptoMov.value
     tipo = checkAbonar.checked ? "Abonar" : (checkCargar.checked ? "Cargar" : "")
@@ -259,12 +260,12 @@ function registrarMovimiento() {
         console.log(dateMov, cuenta, monto, concepto, tipo)
         // alert("Ingrese todos los datos")
     }
-
-    realizarBalanceDeComprobacion()
 }
 
 function realizarBalanceDeComprobacion() {
-    cuentas
+    movimientos.forEach((movimiento) => {
+        
+    })
 }
 
 window.addEventListener('load', iniciarSistema)
