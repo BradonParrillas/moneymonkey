@@ -126,6 +126,7 @@ function iniciarSistema() {
 
 function cargarCuentas() {
     tablaCuentas.innerHTML = ""
+    selectCuenta.innerHTML = ""
     cuentas.sort(function (a, b){
         if(a.codigo > b.codigo) {
             return 1;
