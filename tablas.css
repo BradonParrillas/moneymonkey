@@ -8,7 +8,7 @@ table.scroll tbody,
 table.scroll thead tr { display: block; }
 
 table.scroll tbody {
-    height: 200px;
+    max-height: 55vh;
     overflow-y: auto;
     overflow-x: hidden;
 }
