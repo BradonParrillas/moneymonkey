@@ -284,18 +284,15 @@ function realizarBalanceDeComprobacion() {
     let balanceDebe = 0
     cuentas.forEach((cuenta) => {
         if(cuenta.monto != null) {
-            if(
-                (cuenta.codigo[0] == "1" && cuenta.monto >= 0) ||
-                (cuenta.codigo[0] != "1" && cuenta.monto <= 0)
-            ) {
+            if(cuenta.monto >= 0) {
                 tableBalance.innerHTML += `
                     <tr>
                         <td scope="col">${cuenta.codigo} ${cuenta.nombre}</td>
-                        <td scope="col">${Math.abs(cuenta.monto)}</td>
+                        <td scope="col">${cuenta.monto}</td>
                         <td scope="col"></td>
                     </tr>
                     `
-                balanceDebe += cuenta.monto
+                balanceDebe += Math.abs(cuenta.monto)
             } else {
                 tableBalance.innerHTML += `
                     <tr>
@@ -304,7 +301,7 @@ function realizarBalanceDeComprobacion() {
                         <td scope="col">${Math.abs(cuenta.monto)}</td>
                     </tr>
                     `
-                    balanceDebe += cuenta.monto
+                    balanceHaber += Math.abs(cuenta.monto)
             }
         }
     })
