@@ -111,7 +111,6 @@ function iniciarSistema() {
         new Cuenta("616","Seguros"),
         new Cuenta("617","Mantenimiento y reparaciones")
     )
-    cuentas[2].monto = -1000
     movimientos.push(
         new Movimiento(new Date("2022-03-25"),2, 2000, "Abonar", 1),
         new Movimiento(new Date("2022-03-30"),8, 5600, "Abonar", 2),
@@ -152,6 +151,7 @@ function cargarCuentas() {
     })
 }
 
+//todo Este metodo se puede combinar con registrar movimiento para mejorar el rendimiento, ya que estamos volviendo a recorrer las listas
 function cargarMovimientos() {
     tablaMovimientos.innerHTML = ""
     totalDebe = 0
@@ -193,7 +193,7 @@ function cargarMovimientos() {
             totalHaber += movimiento.monto
         }        
     })
-    tablaMovimientos.innerHTML +=`
+    tablaMovimientos.innerHTML += `
             <tr class="fila-movimiento table-dark" id="filaMovimientoTotal">
                 <td></td>
                 <td><p><strong>Total</strong></p></td>
@@ -227,10 +227,6 @@ function agregarCuenta() {
     else {
         alert("El numero no es valido❗")
     }
-}
-
-function seleccionarCuenta() {
-    console("Se selecciono")
 }
 
 function registrarMovimiento() {
@@ -267,10 +263,15 @@ function registrarMovimiento() {
     }
 }
 
+//todo Este metodo para mejorar el rendimiento debe conbinarse con la funcion registrarMovimiento() asi al momento de hacer un movimiento afecta la cuenta
+//todo Ya que estamos volviendo a recorrer las cuentas y movimientos (esto se puede ahorrar)
 function realizarBalanceDeComprobacion() {
     tableBalance.innerHTML = ""
     let balanceDebe = 0
     let balanceHaber = 0
+    cuentas.forEach((cuenta) => {
+        cuenta.monto = null
+    })
     movimientos.forEach((movimiento) => {
         if(movimiento.tipo == "Abonar") {
             cuentas[movimiento.cuenta].monto += movimiento.monto
@@ -282,40 +283,37 @@ function realizarBalanceDeComprobacion() {
         if(cuenta.codigo.length == 3 && cuenta.monto != null) {
             if(cuenta.codigo[0] == "1" && cuenta.monto >= 0) {
                 tableBalance.innerHTML += `
-                <tr>
-                    <td scope="col">${cuenta.codigo} ${cuenta.nombre}</td>
-                    <td scope="col">${cuenta.monto}</td>
-                    <td scope="col"></td>
-                </tr>
-                `
-                balanceDebe += cuenta.monto
+                    <tr>
+                        <td scope="col">${cuenta.codigo} ${cuenta.nombre}</td>
+                        <td scope="col">${cuenta.monto}</td>
+                        <td scope="col"></td>
+                    </tr>
+                    `
             } else {
                 tableBalance.innerHTML += `
-                <tr>
-                    <td scope="col">${cuenta.codigo} ${cuenta.nombre}</td>
-                    <td scope="col"></td>
-                    <td scope="col">${Math.abs(cuenta.monto)}</td>
-                </tr>
-                `
-
-                balanceHaber += cuenta.monto
+                    <tr>
+                        <td scope="col">${cuenta.codigo} ${cuenta.nombre}</td>
+                        <td scope="col"></td>
+                        <td scope="col">${Math.abs(cuenta.monto)}</td>
+                    </tr>
+                    `
             }
         }
     })
-    if(balanceDebe == balanceHaber) {
+    if(totalDebe == totalHaber) {
         tableBalance.innerHTML += `
             <tr class="table-dark">
                 <td scope="col"><p><strong>TOTAL</strong></p></td>
-                <td scope="col">${balanceDebe}</td>
-                <td scope="col">${balanceHaber}</td>
+                <td scope="col">${totalDebe}</td>
+                <td scope="col">${totalHaber}</td>
             </tr>
             `
     } else {
         tableBalance.innerHTML += `
             <tr class="table-danger">
                 <td scope="col"><p><strong>TOTAL</strong></p></td>
-                <td scope="col">${balanceDebe}</td>
-                <td scope="col">${balanceHaber}</td>
+                <td scope="col">${totalDebe}</td>
+                <td scope="col">${totalHaber}</td>
             </tr>
             `
     }
