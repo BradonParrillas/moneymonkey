@@ -111,7 +111,7 @@ cuentas.push(
     new Cuenta("616","Seguros"),
     new Cuenta("617","Mantenimiento y reparaciones")
 )
-cuentas[2].monto = 1000
+cuentas[2].monto = -1000
 movimientos.push(
     new Movimiento(new Date("2022-03-25"),2, 2000, "Abonar", 1),
     new Movimiento(new Date("2022-03-30"),8, 5600, "Abonar", 2),
@@ -255,7 +255,7 @@ function registrarMovimiento() {
         console.log(dateMov, cuenta, monto, concepto, tipo)
         nuevoMovimiento = new Movimiento(dateMov,cuenta,monto,tipo, numero)
         movimientos.push(nuevoMovimiento)
-        //Se agrega el monto en la cuenta
+        //!Se agrega el monto en la cuenta
         if(nuevoMovimiento.tipo == "Abonar") {
             cuentas[nuevoMovimiento.cuenta].monto += nuevoMovimiento.monto
         } else {
@@ -286,7 +286,7 @@ function realizarBalanceDeComprobacion() {
                 <tr>
                     <td scope="col">${cuenta.codigo} ${cuenta.nombre}</td>
                     <td scope="col"></td>
-                    <td scope="col">${cuenta.monto}</td>
+                    <td scope="col">${Math.abs(cuenta.monto)}</td>
                 </tr>
                 `
             }
