@@ -15,9 +15,11 @@ const checkCargar = document.getElementById('checkCargarMov')
 const inputNumMov = document.getElementById('inputNumMov')
 
 const tableBalance = document.getElementById('balanceDeComprobacion')
+const btnRealizarBalance = document.getElementById('btn-balance')
 
 btnAgregarCuenta.addEventListener('click', agregarCuenta)
 btnRegistrarMov.addEventListener('click', registrarMovimiento)
+btnRealizarBalance.addEventListener('click', realizarBalanceDeComprobacion)
 
 class Cuenta {
     constructor(codigo, nombre) {
@@ -111,18 +113,13 @@ function iniciarSistema() {
         new Cuenta("616","Seguros"),
         new Cuenta("617","Mantenimiento y reparaciones")
     )
-    movimientos.push(
-        new Movimiento(new Date("2022-03-25"),2, 2000, "Abonar", 1),
-        new Movimiento(new Date("2022-03-30"),8, 5600, "Abonar", 2),
-        new Movimiento(new Date("2022-04-01"),18, 500, "Abonar", 3)
-    )
     cargarCuentas()
     cargarMovimientos()
 }
 
 function cargarCuentas() {
     tablaCuentas.innerHTML = ""
-    selectCuenta.innerHTML = ""
+    selectCuenta.innerHTML = `<option disabled selected value> Selecciona una cuenta</option>`
     cuentas.sort(function (a, b){
         if(a.codigo > b.codigo) {
             return 1;
@@ -193,7 +190,8 @@ function cargarMovimientos() {
             totalHaber += movimiento.monto
         }        
     })
-    tablaMovimientos.innerHTML += `
+    if(totalDebe == totalHaber) {
+        tablaMovimientos.innerHTML += `
             <tr class="fila-movimiento table-dark" id="filaMovimientoTotal">
                 <td></td>
                 <td><p><strong>Total</strong></p></td>
@@ -202,7 +200,17 @@ function cargarMovimientos() {
                 <td></td>
             </tr>
             `
-    realizarBalanceDeComprobacion()
+    } else {
+        tablaMovimientos.innerHTML += `
+            <tr class="fila-movimiento table-danger" id="filaMovimientoTotal">
+                <td></td>
+                <td><p><strong>Total</strong></p></td>
+                <td><p><strong>${totalDebe}</strong></p></td>
+                <td><p><strong>${totalHaber}</strong></p></td>
+                <td></td>
+            </tr>
+            `
+    }
 }
 
 function agregarCuenta() {
@@ -250,10 +258,15 @@ function registrarMovimiento() {
         nuevoMovimiento = new Movimiento(dateMov,cuenta,monto,tipo, numero)
         movimientos.push(nuevoMovimiento)
         //!Se agrega el monto en la cuenta
-        if(nuevoMovimiento.tipo == "Abonar") {
+        if(
+            (nuevoMovimiento.tipo == "Abonar" && cuentas[nuevoMovimiento.cuenta].codigo[0] == "1") ||
+            (nuevoMovimiento.tipo == "Cargar" && cuentas[nuevoMovimiento.cuenta].codigo[0] != "1")
+        ) {
             cuentas[nuevoMovimiento.cuenta].monto += nuevoMovimiento.monto
+            console.log(cuentas[nuevoMovimiento.cuenta].monto)
         } else {
             cuentas[nuevoMovimiento.cuenta].monto -= nuevoMovimiento.monto
+            console.log(cuentas[nuevoMovimiento.cuenta].monto)
         }
         cargarMovimientos()
     } else {
@@ -267,28 +280,22 @@ function registrarMovimiento() {
 //todo Ya que estamos volviendo a recorrer las cuentas y movimientos (esto se puede ahorrar)
 function realizarBalanceDeComprobacion() {
     tableBalance.innerHTML = ""
-    let balanceDebe = 0
     let balanceHaber = 0
+    let balanceDebe = 0
     cuentas.forEach((cuenta) => {
-        cuenta.monto = null
-    })
-    movimientos.forEach((movimiento) => {
-        if(movimiento.tipo == "Abonar") {
-            cuentas[movimiento.cuenta].monto += movimiento.monto
-        } else {
-            cuentas[movimiento.cuenta].monto -= movimiento.monto
-        }
-    })
-    cuentas.forEach((cuenta) => {
-        if(cuenta.codigo.length == 3 && cuenta.monto != null) {
-            if(cuenta.codigo[0] == "1" && cuenta.monto >= 0) {
+        if(cuenta.monto != null) {
+            if(
+                (cuenta.codigo[0] == "1" && cuenta.monto >= 0) ||
+                (cuenta.codigo[0] != "1" && cuenta.monto <= 0)
+            ) {
                 tableBalance.innerHTML += `
                     <tr>
                         <td scope="col">${cuenta.codigo} ${cuenta.nombre}</td>
-                        <td scope="col">${cuenta.monto}</td>
+                        <td scope="col">${Math.abs(cuenta.monto)}</td>
                         <td scope="col"></td>
                     </tr>
                     `
+                balanceDebe += cuenta.monto
             } else {
                 tableBalance.innerHTML += `
                     <tr>
@@ -297,23 +304,24 @@ function realizarBalanceDeComprobacion() {
                         <td scope="col">${Math.abs(cuenta.monto)}</td>
                     </tr>
                     `
+                    balanceDebe += cuenta.monto
             }
         }
     })
-    if(totalDebe == totalHaber) {
+    if(balanceDebe == balanceHaber) {
         tableBalance.innerHTML += `
             <tr class="table-dark">
                 <td scope="col"><p><strong>TOTAL</strong></p></td>
-                <td scope="col">${totalDebe}</td>
-                <td scope="col">${totalHaber}</td>
+                <td scope="col">${balanceDebe}</td>
+                <td scope="col">${balanceHaber}</td>
             </tr>
             `
     } else {
         tableBalance.innerHTML += `
             <tr class="table-danger">
                 <td scope="col"><p><strong>TOTAL</strong></p></td>
-                <td scope="col">${totalDebe}</td>
-                <td scope="col">${totalHaber}</td>
+                <td scope="col">${balanceDebe}</td>
+                <td scope="col">${balanceHaber}</td>
             </tr>
             `
     }
