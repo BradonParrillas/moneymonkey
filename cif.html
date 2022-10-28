@@ -1,0 +1,644 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//ES">
+<html>
+<head>
+<!-- ENCABEZADO DE LA PAGINA WEB -->
+<TITLE> Montos de cuenta de constos indirectos</TITLE>
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=ISO-8859-1">
+<META HTTP-EQUIV="Expires" CONTENT="0">
+<META NAME="author" CONTENT="oscar rene vasquez avalos">
+<META NAME="keywords" CONTENT="Sistemas Contables">
+<META NAME="description" CONTENT="CIF">
+    
+    <!-- Estilos -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="tablas.css">
+
+</head>
+<body TEXT="#000000" 	LINK="##000800" 
+VLINK="#ff2a00" ALINK="#33CC00" style="background-color:#343a40;">
+    <!-- ENCABEZADO DE LA PAGINA WEB -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+          <p><strong>ManageApps</strong></p>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="./index.html" id="btn-diario">Cuentas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./mano_de_obra.html" id="btn-cuentas">Mano de obra<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link disabled" href="./cif.html" id="btn-cuentas">CIF<span class="sr-only">(current)</span></a>
+          </li>
+          </ul>
+      </div>
+  </nav>
+    <div class="container-fluid " >
+        <div class="row justify-content-md-center ">
+        <!--Formulario cif-->
+        <div class="col-sm-12 col-md-12">
+        <div class="card outline-black">
+        <div class="card-header">
+        <h3 class="text-center" style="color: gray;">Costos indirectos de fabricaci&oacute;n</h3>
+        </div>
+        <div class="card-body ">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6 class="text-center">Cuenta</h6>
+                            </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <h6 class="text-center">Catalogo de cuentas de costos indirectos</h6>
+                            </div>
+                    </div>
+                </div>
+        <form>
+        <div class="row">
+        <div class="col-md-6">
+        <div class="form-group">
+        <label for="codigo">C&oacute;digo de cuenta: </label>
+        <input type="text" class="form-control" id="codigo" name="codigo">
+        </div>
+        <div class="form-group">
+        <label for="nombre">Nombre de la cuenta: </label>
+        <input class="form-control" id="nombre" rows="5" name="nombre">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Monto:</label>
+            <input class="form-control" id="nombre" rows="5" name="nombre">
+            </div>     
+                <div class="row">
+                    <div class="col-7">
+                        <div class="form-group">
+                            <div class="form-group row">       
+                                <div class="col-sm-7">
+                                    <a href="#" type="button" class="btn btn-dark float-right">Agregar</a>
+                                </div>
+                              </div>
+                            </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <div class="form-group row">   
+                                <div class="col-sm-6">
+                                    <a href="#" type="button" class="btn btn-dark float-right">Limpiar</a>
+                                </div>
+                              </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-6">
+      <!--INICIO TABLA BOOTSTRAP-->
+      <table class="table scroll table-hover" style="">
+        <thead class="thead-dark">
+            <tr>
+                <th>C&oacute;digo</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody id="tablaCuentas">
+        </tbody>
+    </table>
+    <!--FIN TABLA BOOTSTRAP-->
+        </div>
+        <div class="col-md-5"><br>
+            <div class="col-12">
+                <div class="form-group">
+                    <h6 class="text-center">Catalogo de cuentas de costos indirectos</h6>
+                    </div>
+            </div>
+            <!--INICIO TABLA BOOTSTRAP-->
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">codigo</th>
+                    <th scope="col">Nombre de la cuenta</th>
+                    <th scope="col">Monto</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">531</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">532</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">533</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">534</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">535</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">536</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">537</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">538</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">539</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">612</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">613</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">617</th>
+                  </tr>
+                  <tr>
+                    <th scope="row">Total</th>
+                  </tr>
+                </tbody>
+              </table>
+          <!--FIN TABLA BOOTSTRAP-->
+              </div>
+              <div class="col-md-7"><br>
+                <div class="col-12">
+                    <div class="form-group">
+                        <h6 class="text-center">Departamentos de la organizacion</h6>
+                        </div>
+                </div>
+                <!--INICIO TABLA BOOTSTRAP-->
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Departamentos</th>
+                        <th scope="col">Espacio pies&sup2</th>
+                        <th scope="col">N&deg; de Empleados</th>
+                        <th scope="col">KWH</th>
+                        <th scope="col">Horas-Hombre</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th class="text-center" colspan="5">Departamentos productivos</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Analisis</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Dise&ntilde;o</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Desarrollo</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Pruebas</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Mantenimiento</th>
+                      </tr>
+                      <tr>
+                        <th class="text-center" colspan="5">Departamentos de servicios</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Calidad</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Insumos </th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Mantenimiento de PC</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Infraestructura </th>
+                      </tr>
+                      <tr>
+                        <th scope="row">Total</th>
+                      </tr>
+                    </tbody>
+                  </table>
+              <!--FIN TABLA BOOTSTRAP-->
+                  </div>
+
+                  <div class="col-md-12"><br>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <h6 class="text-center">Factor de recargo con eficiencia dia hora semana</h6>
+                            </div>
+                    </div>
+                    <!--INICIO TABLA BOOTSTRAP-->
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Analisis</th>
+                            <th scope="col">Dise&ntilde;o</th>
+                            <th scope="col">Desarrollo</th>
+                            <th scope="col">Pruebas</th>
+                            <th scope="col">Mantenimiento</th>
+                            <th scope="col">Calidad</th>
+                            <th scope="col">Insumos</th>
+                            <th scope="col">Mantenimiento de PC</th>
+                            <th scope="col">Infraestructura</th>
+                            <th scope="col">Total</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">531</th>
+                            <th scope="row">Salario supervision</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">532</th>
+                            <th scope="row">Salarios oficina</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">533</th>
+                            <th scope="row">Mano de obra indirecta</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">534</th>
+                            <th scope="row">Materiales indirectos</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">535</th>
+                            <th scope="row">Suministros</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">536</th>
+                            <th scope="row">Herramientas</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">537</th>
+                            <th scope="row">Otros materiales</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">538</th>
+                            <th scope="row">Depreciacion</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">539</th>
+                            <th scope="row">Impuestos</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">612</th>
+                            <th scope="row">Servicios públicos</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">613</th>
+                            <th scope="row">Servicios privados</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">617</th>
+                            <th scope="row">Servicios privados</th>
+                          </tr>
+                          <tr>
+                            <th class="text-center" colspan="2">Total</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">618</th>
+                            <th scope="row">Calidad</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">619</th>
+                            <th scope="row">Insumos y materiales</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">620</th>
+                            <th scope="row">Mantenimiento de computadoras</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">621</th>
+                            <th scope="row">Infraestructura y limpieza</th>
+                          </tr>
+                          <tr>
+                            <th class="text-center" colspan="2">Total</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                  <!--FIN TABLA BOOTSTRAP-->
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                            <h6 class="text-center">Tasas predeterminadas</h6>
+                            </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="form-group">
+                            <div class="form-group row">   
+                                <div class="col-sm-10">
+                                    <a href="#" type="button" class="btn btn-dark float-right">Calcular Tasas</a>
+                                </div>
+                              </div>
+                            </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <h6 class="text-center">Departamentos productivos - Espacio pies&sup2</h6>
+                            </div>
+                    </div>
+                    
+                    <div class="col-md-5"><br>
+                        <!--INICIO TABLA BOOTSTRAP-->
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Nombre de la cuenta</th>
+                                <th scope="col">Calculo</th>
+                                <th scope="col">Monto</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Tasa del departamento de analisis</th>
+                                <th scope="row">CIF/Espacio pies&sup2</th>
+                              </tr>
+                              <tr>
+                                <th scope="row">Tasa del departamento de dise&ntilde;o</th>
+                                <th scope="row">CIF/Espacio pies&sup2</th>
+                              </tr>
+                              <tr>
+                                <th scope="row">Tasa del departamento de desarrollo</th>
+                                <th scope="row">CIF/Espacio pies&sup2</th>
+                              </tr>
+                              <tr>
+                                <th scope="row">Tasa del departamento de pruebas</th>
+                                <th scope="row">CIF/Espacio pies&sup2</th>
+                              </tr>
+                              <tr>
+                                <th scope="row">Tasa del departamento de mantenimiento</th>
+                                <th scope="row">CIF/Espacio pies&sup2</th>
+                              </tr>
+                            </tbody>
+                          </table>
+                      <!--FIN TABLA BOOTSTRAP-->
+                          </div>
+                          <div class="col-md-6"><br>
+                            <!--INICIO TABLA BOOTSTRAP-->
+                            <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Nombre de la cuenta</th>
+                                    <th scope="col">Calculo</th>
+                                    <th scope="col">Monto</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">Tasa del departamento de calidad</th>
+                                    <th scope="row">CIF/Espacio pies&sup2</th>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Tasa del departamento de insumos y materiales</th>
+                                    <th scope="row">CIF/Espacio pies&sup2</th>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Tasa del departamento de infraestructura y limpieza</th>
+                                    <th scope="row">CIF/Espacio pies&sup2</th>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Tasa del departamento de mantenimiento de computadoras</th>
+                                    <th scope="row">CIF/Espacio pies&sup2</th>
+                                  </tr>
+                                </tbody>
+                              </table>
+                          <!--FIN TABLA BOOTSTRAP-->
+                              </div>
+                              <div class="col-12">
+                                <div class="form-group">
+                                    <h6 class="text-center">Departamentos productivos - N&deg; de Empleados</h6>
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-5"><br>
+                                <!--INICIO TABLA BOOTSTRAP-->
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">Nombre de la cuenta</th>
+                                        <th scope="col">Calculo</th>
+                                        <th scope="col">Monto</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">Tasa del departamento de analisis</th>
+                                        <th scope="row">CIF/# de empleados</th>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Tasa del departamento de dise&ntilde;o</th>
+                                        <th scope="row">CIF/# de empleados</th>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Tasa del departamento de desarrollo</th>
+                                        <th scope="row">CIF/# de empleados</th>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Tasa del departamento de pruebas</th>
+                                        <th scope="row">CIF/# de empleados</th>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Tasa del departamento de mantenimiento</th>
+                                        <th scope="row">CIF/# de empleados</th>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                              <!--FIN TABLA BOOTSTRAP-->
+                                  </div>
+                                  <div class="col-md-6"><br>
+                                    <!--INICIO TABLA BOOTSTRAP-->
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                          <tr>
+                                            <th scope="col">Nombre de la cuenta</th>
+                                            <th scope="col">Calculo</th>
+                                            <th scope="col">Monto</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <th scope="row">Tasa del departamento de calidad</th>
+                                            <th scope="row">CIF/# de empleados</th>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">Tasa del departamento de insumos y materiales</th>
+                                            <th scope="row">CIF/# de empleados</th>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">Tasa del departamento de infraestructura y limpieza</th>
+                                            <th scope="row">CIF/# de empleados</th>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">Tasa del departamento de mantenimiento de computadoras</th>
+                                            <th scope="row">CIF/# de empleados</th>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                  <!--FIN TABLA BOOTSTRAP-->
+                                      </div>
+                                      <div class="col-12">
+                                        <div class="form-group">
+                                            <h6 class="text-center">Departamentos productivos - KWH</h6>
+                                            </div>
+                                    </div>
+                                    
+                                    <div class="col-md-5"><br>
+                                        <!--INICIO TABLA BOOTSTRAP-->
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                              <tr>
+                                                <th scope="col">Nombre de la cuenta</th>
+                                                <th scope="col">Calculo</th>
+                                                <th scope="col">Monto</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <th scope="row">Tasa del departamento de analisis</th>
+                                                <th scope="row">CIF/KwH</th>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Tasa del departamento de dise&ntilde;o</th>
+                                                <th scope="row">CIF/KwH</th>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Tasa del departamento de desarrollo</th>
+                                                <th scope="row">CIF/KwH</th>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Tasa del departamento de pruebas</th>
+                                                <th scope="row">CIF/KwH</th>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Tasa del departamento de mantenimiento</th>
+                                                <th scope="row">CIF/KwH</th>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                      <!--FIN TABLA BOOTSTRAP-->
+                                          </div>
+                                          <div class="col-md-6"><br>
+                                            <!--INICIO TABLA BOOTSTRAP-->
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                  <tr>
+                                                    <th scope="col">Nombre de la cuenta</th>
+                                                    <th scope="col">Calculo</th>
+                                                    <th scope="col">Monto</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row">Tasa del departamento de calidad</th>
+                                                    <th scope="row">CIF/KwH</th>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">Tasa del departamento de insumos y materiales</th>
+                                                    <th scope="row">CIF/KwH</th>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">Tasa del departamento de infraestructura y limpieza</th>
+                                                    <th scope="row">CIF/KwH</th>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">Tasa del departamento de mantenimiento de computadoras</th>
+                                                    <th scope="row">CIF/KwH</th>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                          <!--FIN TABLA BOOTSTRAP-->
+                                              </div>
+                                              
+                                              <div class="col-12">
+                                                <div class="form-group">
+                                                    <h6 class="text-center">Departamentos productivos - Horas Hombre</h6>
+                                                    </div>
+                                            </div>
+                                            
+                                            <div class="col-md-5"><br>
+                                                <!--INICIO TABLA BOOTSTRAP-->
+                                                <table class="table">
+                                                    <thead class="thead-dark">
+                                                      <tr>
+                                                        <th scope="col">Nombre de la cuenta</th>
+                                                        <th scope="col">Calculo</th>
+                                                        <th scope="col">Monto</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <th scope="row">Tasa del departamento de analisis</th>
+                                                        <th scope="row">CIF/H-H</th>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">Tasa del departamento de dise&ntilde;o</th>
+                                                        <th scope="row">CIF/H-H</th>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">Tasa del departamento de desarrollo</th>
+                                                        <th scope="row">CIF/H-H</th>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">Tasa del departamento de pruebas</th>
+                                                        <th scope="row">CIF/H-H</th>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">Tasa del departamento de mantenimiento</th>
+                                                        <th scope="row">CIF/H-H</th>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                              <!--FIN TABLA BOOTSTRAP-->
+                                                  </div>
+                                                  <div class="col-md-6"><br>
+                                                    <!--INICIO TABLA BOOTSTRAP-->
+                                                    <table class="table">
+                                                        <thead class="thead-dark">
+                                                          <tr>
+                                                            <th scope="col">Nombre de la cuenta</th>
+                                                            <th scope="col">Calculo</th>
+                                                            <th scope="col">Monto</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <th scope="row">Tasa del departamento de calidad</th>
+                                                            <th scope="row">CIF/H-H</th>
+                                                          </tr>
+                                                          <tr>
+                                         <th scope="row">Tasa del departamento de insumos y materiales</th>
+                                         <th scope="row">CIF/H-H</th>
+                                            </tr>
+                                             <tr>
+                                              <th scope="row">Tasa del departamento de infraestructura y limpieza</th>
+                                              <th scope="row">CIF/H-H</th>
+                                             </tr>
+                                              <tr>
+                                            <th scope="row">Tasa del departamento de mantenimiento de computadoras</th>
+                                                   <th scope="row">CIF/H-H</th>
+                                             </tr>
+                                     </tbody>
+                            </table>
+                        <!--FIN TABLA BOOTSTRAP-->
+                                  </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <br><br>
+</body>
+</html>
