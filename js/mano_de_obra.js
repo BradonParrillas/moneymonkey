@@ -2,7 +2,7 @@ const inputs = document.querySelectorAll('.input')
 const inputSalario = document.querySelector('#salario-nominal')
 const inputEficiencia = document.querySelector('#eficiencia')
 const inputDias = document.querySelector('#dias-trabajados')
-const inputAños = document.querySelector('#años-trabajados')
+const inputAnios = document.querySelector('#anios-trabajados')
 const inputEmpleados = document.querySelector('#empleados')
 
 const ouputs = document.querySelectorAll('.ouput')
@@ -23,7 +23,7 @@ btnLimpiar.addEventListener('click', limpiarCampos)
 let salario = 10
 let dias = 5.5
 let eficiencia = 85
-let años = 5
+let anios = 5
 let empleados = 20
 
 let vacaciones
@@ -59,7 +59,7 @@ function calcularManoDeObra() {
     salario = inputSalario.value
     dias = inputDias.value
     eficiencia = inputEficiencia.value
-    años = inputAños.value
+    anios = inputAnios.value
     empleados = inputEmpleados.value
     calcularSeptimo()
     calcularAguinaldo()
@@ -76,9 +76,9 @@ function calcularSeptimo() {
 }
 
 function calcularAguinaldo() {
-    if(años < 3)
+    if(anios < 3)
         aguinaldo = 10 * salario / 52
-    else if(años < 10)
+    else if(anios < 10)
         aguinaldo = 15 * salario / 52
     else
         aguinaldo = 18 * salario / 52
